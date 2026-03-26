@@ -38,6 +38,21 @@ run/
 # Executable files
 *.exe
 
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# Archive files
+*.zip
+*.rar
+*.7z
+
+# Skin directories
+终末地皮肤/
+
 # Windows generated files
 Thumbs.db
 
