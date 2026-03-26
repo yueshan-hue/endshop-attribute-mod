@@ -1,29 +1,91 @@
+# 终末地属性系统模组 (Endshop Attribute Mod)
 
-Installation information
-=======
+## 模组简介
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+终末地属性系统模组是一个为Minecraft 1.21.x版本开发的NeoForge模组，添加了完整的角色属性系统和基于玩家模型的终末地角色实体。
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## 功能特性
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+### 1. 属性系统
+- **力量**：每点力量增加0.02的生命值
+- **敏捷**：每点敏捷减少0.14%的物理伤害
+- **智识**：每点智识减少0.14%的魔法伤害
+- **意志**：每点意志增加0.2%的治疗量
+- 属性界面：通过职业书打开属性查看界面
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+### 2. 实体系统
+- 基于玩家模型的终末地角色实体
+- 支持自定义皮肤
+- 通过指令召唤实体
+- 实体列表：
+  - yvon (伊冯)
+  - perica (佩丽卡)
+  - surtr (苏尔特)
+  - gerpeita (格尔佩塔)
+  - rosie (罗茜)
+  - admin_b (管理员B)
+  - chen_qianyu (陈千语)
+  - bieli (比莉)
+  - etera (埃特拉)
+  - zhuang_fangyi (庄芳仪)
+  - tangtang (糖糖)
+  - qiuli (秋丽)
+  - admin_a (管理员A)
+  - yingshi (影士)
+  - saixi (塞西)
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+### 3. 职业系统
+- 多种职业选择
+- 职业等级显示
+- 职业特性
 
-Acknowledgements
-==========
-感谢主播 **牢闪迪** (LV6, 伊吹萃香粉丝) 提供的终末地角色皮肤，通过他的皮肤可以召唤这些干员充当你的黑奴了。后续开发，等我研究完这个生物ai。
+## 安装方法
+
+1. 确保已安装 NeoForge 1.21.x
+2. 将模组 .jar 文件放入 `mods` 文件夹
+3. 启动游戏
+
+## 使用说明
+
+### 召唤实体
+使用指令召唤终末地角色实体：
+```
+/summon endshopattribute:yvon
+/summon endshopattribute:perica
+# 其他实体同理
+```
+
+### 打开属性界面
+1. 获取职业书
+2. 右键点击职业书打开属性界面
+3. 查看和管理角色属性
+
+### 选择职业
+使用指令设置职业：
+```
+/setjob <职业名称>
+```
+
+## 配置选项
+
+模组使用默认配置，无需额外配置文件。
+
+## 依赖项
+
+- NeoForge 1.21.x
+- Minecraft 1.21.x
+
+## 开发计划
+
+- 完善生物AI系统
+- 添加更多终末地角色
+- 增加角色技能系统
+- 优化属性效果
+
+## Acknowledgements
+
+感谢主播 **b站up主牢闪迪** 提供的终末地角色皮肤，通过他的皮肤可以召唤这些干员充当你的黑奴了。后续开发，等我研究完这个生物ai。
+
+## 许可证
+
+本模组采用 MIT 许可证。
