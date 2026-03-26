@@ -23,3 +23,7 @@ Additional Resources:
 ==========
 Community Documentation: https://docs.neoforged.net/  
 NeoForged Discord: https://discord.neoforged.net/
+
+Acknowledgements
+==========
+感谢主播 **闪迪** (LV6, 伊吹萃香粉丝) 提供的终末地角色皮肤，这些皮肤为模组增添了独特的视觉效果和角色魅力。
