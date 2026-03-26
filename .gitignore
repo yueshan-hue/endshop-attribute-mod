@@ -32,6 +32,12 @@ local.properties
 # Mod files
 *.jar
 
+# Run directory
+run/
+
+# Executable files
+*.exe
+
 # Windows generated files
 Thumbs.db
 
