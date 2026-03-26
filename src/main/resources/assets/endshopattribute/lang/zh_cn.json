@@ -1,0 +1,36 @@
+{
+  "itemGroup.endshopattribute": "终末地职业",
+
+  "item.endshopattribute.job_book": "职业书",
+  "item.endshopattribute.job_book.tooltip": "右键单击打开职业选择界面",
+
+  "entity.endshopattribute.yvon": "终末地伊冯",
+  "entity.endshopattribute.perica": "终末地佩丽卡",
+  "entity.endshopattribute.surtr": "终末地史尔特尔",
+  "entity.endshopattribute.gerpeita": "终末地洁尔佩塔",
+  "entity.endshopattribute.rosie": "终末地洛茜",
+  "entity.endshopattribute.admin_b": "终末地管理员B",
+  "entity.endshopattribute.chen_qianyu": "终末地陈千语",
+  "entity.endshopattribute.bieli": "终末地别礼",
+  "entity.endshopattribute.etera": "终末地埃特拉",
+  "entity.endshopattribute.zhuang_fangyi": "终末地庄方宜",
+  "entity.endshopattribute.tangtang": "终末地汤汤",
+  "entity.endshopattribute.qiuli": "终末地秋栗",
+  "entity.endshopattribute.admin_a": "终末地管理员A",
+  "entity.endshopattribute.yingshi": "终末地萤石",
+  "entity.endshopattribute.saixi": "终末地赛希",
+
+  "gui.endshopattribute.job_selection.title": "选择你的职业",
+  "gui.endshopattribute.job_selection.clear": "清除职业",
+
+  "gui.endshopattribute.attributes.title": "属性查看",
+  "gui.endshopattribute.attributes.close": "关闭",
+  "gui.endshopattribute.attributes.wisdom": "智识",
+  "gui.endshopattribute.attributes.strength": "力量",
+  "gui.endshopattribute.attributes.agility": "敏捷",
+  "gui.endshopattribute.attributes.willpower": "意志",
+  "gui.endshopattribute.attributes.total": "总属性: %d",
+  "gui.endshopattribute.attributes.button": "属性",
+
+  "endshopattribute.configuration.title": "终末地职业 配置"
+}

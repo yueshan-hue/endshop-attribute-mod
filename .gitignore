@@ -1,0 +1,39 @@
+# Gradle
+.gradle/
+.gradle_repo/
+build/
+
+# IDE
+.idea/
+.vscode/
+.eclipse/
+
+# Runtime
+runtime/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Environment variables
+.env
+
+# Local configuration files
+local.properties
+
+# Mod files
+*.jar
+
+# Windows generated files
+Thumbs.db
+
+# Mac generated files
+.DS_Store

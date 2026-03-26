@@ -1,0 +1,20 @@
+{
+  "itemGroup.endshopattribute": "Endshop Jobs",
+
+  "item.endshopattribute.job_book": "Job Book",
+  "item.endshopattribute.job_book.tooltip": "Right-click to open the job selection menu",
+
+  "gui.endshopattribute.job_selection.title": "Choose Your Job",
+  "gui.endshopattribute.job_selection.clear": "Clear Job",
+
+  "gui.endshopattribute.attributes.title": "Attributes",
+  "gui.endshopattribute.attributes.close": "Close",
+  "gui.endshopattribute.attributes.wisdom": "Wisdom",
+  "gui.endshopattribute.attributes.strength": "Strength",
+  "gui.endshopattribute.attributes.agility": "Agility",
+  "gui.endshopattribute.attributes.willpower": "Willpower",
+  "gui.endshopattribute.attributes.total": "Total: %d",
+  "gui.endshopattribute.attributes.button": "Attrs",
+
+  "endshopattribute.configuration.title": "Endshop Job Config"
+}

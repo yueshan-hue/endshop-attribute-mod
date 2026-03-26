@@ -1,0 +1,10 @@
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/summon endshopattribute:admin_b
+/summon endshopattribute:admin_a
+/summon minecraft:wolf
+/summon endshopattribute:etera
+/summon endshopattribute:qiuli
+/summon endshopattribute:zhuang_fangyi
