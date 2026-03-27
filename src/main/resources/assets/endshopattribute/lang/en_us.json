@@ -16,5 +16,20 @@
   "gui.endshopattribute.attributes.total": "Total: %d",
   "gui.endshopattribute.attributes.button": "Attrs",
 
+  "skill.quick_heal.name": "Quick Heal",
+  "skill.quick_heal.desc": "Instantly restores health, +6 HP per level",
+  "skill.strength_boost.name": "Strength Boost",
+  "skill.strength_boost.desc": "Permanently increases attack damage, +0.5 per level",
+
+  "skill.slot.slot_1": "Skill Slot 1 [Q]",
+  "skill.slot.slot_2": "Skill Slot 2 [E]",
+  "skill.slot.slot_3": "Skill Slot 3 [R]",
+  "skill.slot.slot_4": "Skill Slot 4 [F]",
+  "gui.endshopattribute.skill.equip": "Equip Skill",
+  "gui.endshopattribute.skill.unequip": "Unequip Skill",
+  "gui.endshopattribute.skill.no_skill": "No Skill Equipped",
+  "gui.endshopattribute.skill.equipment": "Skill Equipment",
+  "gui.endshopattribute.skill.selection": "Select Skill",
+
   "endshopattribute.configuration.title": "Endshop Job Config"
 }

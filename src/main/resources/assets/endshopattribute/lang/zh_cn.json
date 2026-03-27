@@ -32,5 +32,20 @@
   "gui.endshopattribute.attributes.total": "总属性: %d",
   "gui.endshopattribute.attributes.button": "属性",
 
+  "skill.quick_heal.name": "快速治疗",
+  "skill.quick_heal.desc": "立即恢复生命值，每级增加 6 点治疗量",
+  "skill.strength_boost.name": "力量强化",
+  "skill.strength_boost.desc": "永久增加攻击力，每级增加 0.5 点攻击力",
+
+  "skill.slot.slot_1": "技能槽位 1 [Q]",
+  "skill.slot.slot_2": "技能槽位 2 [E]",
+  "skill.slot.slot_3": "技能槽位 3 [R]",
+  "skill.slot.slot_4": "技能槽位 4 [F]",
+  "gui.endshopattribute.skill.equip": "装备技能",
+  "gui.endshopattribute.skill.unequip": "卸下技能",
+  "gui.endshopattribute.skill.no_skill": "未装备技能",
+  "gui.endshopattribute.skill.equipment": "技能装备",
+  "gui.endshopattribute.skill.selection": "选择技能",
+
   "endshopattribute.configuration.title": "终末地职业 配置"
 }

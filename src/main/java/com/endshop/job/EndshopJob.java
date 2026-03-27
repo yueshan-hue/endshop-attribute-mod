@@ -5,6 +5,8 @@ import com.endshop.job.data.JobDataAttachment;
 import com.endshop.job.entity.EndshopEntity;
 import com.endshop.job.entity.EndshopEntityTypes;
 import com.endshop.job.item.JobBookItem;
+import com.endshop.job.skill.SkillDataAttachment;
+import com.endshop.job.skill.SkillInitializer;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -53,15 +55,21 @@ public class EndshopJob {
     public EndshopJob(IEventBus modEventBus, ModContainer modContainer) {
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
-
+    
         // 注册实体类型
         EndshopEntityTypes.register(modEventBus);
-
+    
         // 注册数据附件类型
         JobDataAttachment.register(modEventBus);
         com.endshop.job.data.AttributeDataAttachment.register(modEventBus);
-
-        // 注册游戏事件（Tab名显示、指令等）到NeoForge总线
+            
+        // 注册技能数据附件
+        SkillDataAttachment.register(modEventBus);
+            
+        // 初始化并注册所有技能
+        SkillInitializer.init();
+    
+        // 注册游戏事件（Tab 名显示、指令等）到 NeoForge 总线
         NeoForge.EVENT_BUS.register(new GameEvents());
     }
 
