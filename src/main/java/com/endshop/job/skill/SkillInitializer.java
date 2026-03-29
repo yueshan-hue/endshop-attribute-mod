@@ -2,6 +2,19 @@ package com.endshop.job.skill;
 
 import com.endshop.job.skill.skills.QuickHealSkill;
 import com.endshop.job.skill.skills.StrengthBoostSkill;
+import com.endshop.job.skill.skills.WisdomBoostSkill;
+import com.endshop.job.skill.skills.AgilityBoostSkill;
+import com.endshop.job.skill.skills.WillpowerBoostSkill;
+import com.endshop.job.skill.skills.TrueBladeSkill;
+import com.endshop.job.skill.skills.SlashDashSkill;
+import com.endshop.job.skill.skills.CleaveChargeSkill;
+import com.endshop.job.skill.skills.SequenceShockSkill;
+import com.endshop.job.skill.skills.BurnoutSkill;
+import com.endshop.job.skill.skills.InfernoSkill;
+import com.endshop.job.skill.skills.NoiseSkill;
+import com.endshop.job.skill.skills.CondensingVoiceSkill;
+import com.endshop.job.skill.skills.HypothermiaSkill;
+import com.endshop.job.skill.skills.SaturationDefenseSkill;
 import com.endshop.job.profession.Profession;
 
 /**
@@ -26,35 +39,37 @@ public class SkillInitializer {
     private static void registerGenericSkills() {
         // 快速治疗 - 所有职业都可以使用
         SkillRegistry.register(new QuickHealSkill());
+        
+        // 智识强化 - 所有职业都可以使用
+        SkillRegistry.register(new WisdomBoostSkill());
+        
+        // 敏捷强化 - 所有职业都可以使用
+        SkillRegistry.register(new AgilityBoostSkill());
+        
+        // 意志强化 - 所有职业都可以使用
+        SkillRegistry.register(new WillpowerBoostSkill());
     }
     
     /**
      * 注册职业技能（特定职业专属）
      */
     private static void registerJobSkills() {
-        // 医疗职业专属技能
-        SkillRegistry.register(new StrengthBoostSkill(), Profession.MEDIC.name());
+        // 近卫职业专属技能 - 管理员
+        SkillRegistry.register(new TrueBladeSkill(), Profession.GUARD.name());
+        SkillRegistry.register(new SlashDashSkill(), Profession.GUARD.name());
+        SkillRegistry.register(new CleaveChargeSkill(), Profession.GUARD.name());
+        SkillRegistry.register(new SequenceShockSkill(), Profession.GUARD.name());
         
-        // TODO: 为其他职业添加专属技能
-        // 先锋职业专属技能
-        // SkillRegistry.register(new VanguardSkill(), Profession.VANGUARD.name());
+        // 突击职业专属技能 - 莱万汀
+        SkillRegistry.register(new BurnoutSkill(), Profession.SPECIALIST.name());
+        SkillRegistry.register(new InfernoSkill(), Profession.SPECIALIST.name());
         
-        // 近卫职业专属技能
-        // SkillRegistry.register(new GuardSkill(), Profession.GUARD.name());
+        // 先锋职业专属技能 - 埃特拉
+        SkillRegistry.register(new NoiseSkill(), Profession.VANGUARD.name());
+        SkillRegistry.register(new CondensingVoiceSkill(), Profession.VANGUARD.name());
         
-        // 重装职业专属技能
-        // SkillRegistry.register(new DefenderSkill(), Profession.DEFENDER.name());
-        
-        // 狙击职业专属技能
-        // SkillRegistry.register(new SniperSkill(), Profession.SNIPER.name());
-        
-        // 特种职业专属技能
-        // SkillRegistry.register(new SpecialistSkill(), Profession.SPECIALIST.name());
-        
-        // 术师职业专属技能
-        // SkillRegistry.register(new CasterSkill(), Profession.CASTER.name());
-        
-        // 辅助职业专属技能
-        // SkillRegistry.register(new SupporterSkill(), Profession.SUPPORTER.name());
+        // 重装职业专属技能 - 昼雪
+        SkillRegistry.register(new HypothermiaSkill(), Profession.DEFENDER.name());
+        SkillRegistry.register(new SaturationDefenseSkill(), Profession.DEFENDER.name());
     }
 }

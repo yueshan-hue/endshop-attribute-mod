@@ -1,14 +1,19 @@
 package com.endshop.job.command;
 
+import com.endshop.job.network.SyncSkillDataPacket;
 import com.endshop.job.skill.SkillDataAttachment;
 import com.endshop.job.skill.SkillRegistry;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.HashMap;
 
 /**
  * 技能装备指令
@@ -40,10 +45,19 @@ public class SkillEquipCommand {
                             boolean success = skillData.equipSkill(skillId, slot);
                             
                             if (success) {
+                                // 发送同步包到客户端
+                                SyncSkillDataPacket packet = new SyncSkillDataPacket(
+                                    skillData.getUnlockedSkillsSet(),
+                                    skillData.getSkillLevelsMap(),
+                                    skillData.getEquippedSkillsMap(),
+                                    new HashMap<>()  // 空的冷却时间映射
+                                );
+                                PacketDistributor.sendToPlayer((ServerPlayer) player, packet);
+                                                            
                                 var skill = SkillRegistry.getSkill(skillId);
                                 context.getSource().sendSuccess(
-                                    () -> Component.literal("§a已将 §f" + skill.getName() + 
-                                        " §a装备到槽位 " + (slot + 1)),
+                                    () -> Component.literal("§a 已将 §f" + skill.getName() + 
+                                        " §a 装备到槽位 " + (slot + 1)),
                                     true
                                 );
                                 return 1;

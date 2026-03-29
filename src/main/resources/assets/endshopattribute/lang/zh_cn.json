@@ -47,5 +47,11 @@
   "gui.endshopattribute.skill.equipment": "技能装备",
   "gui.endshopattribute.skill.selection": "选择技能",
 
+  "key.categories.endshopattribute.skills": "终末地职业 - 技能",
+  "key.endshopattribute.skill_slot_1": "技能槽位 1 [Q]",
+  "key.endshopattribute.skill_slot_2": "技能槽位 2 [E]",
+  "key.endshopattribute.skill_slot_3": "技能槽位 3 [R]",
+  "key.endshopattribute.skill_slot_4": "技能槽位 4 [F]",
+
   "endshopattribute.configuration.title": "终末地职业 配置"
 }

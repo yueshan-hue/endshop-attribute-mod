@@ -72,11 +72,12 @@ public class SkillSelectionScreen extends Screen {
             
             if (isUnlocked) {
                 Skill skill = SkillRegistry.getSkill(skillId);
-                if (skill instanceof ActiveSkill) {
+                // 显示所有技能类型（包括主动和被动）
+                if (skill != null) {
                     availableSkills.add(skillId);
-                    System.out.println("[DEBUG] 添加到可用技能：" + skillId);
+                    System.out.println("[DEBUG] 添加到可用技能：" + skillId + " (类型：" + (skill instanceof ActiveSkill ? "主动" : "被动") + ")");
                 } else {
-                    System.out.println("[DEBUG] 跳过非主动技能：" + skillId);
+                    System.out.println("[DEBUG] 技能未注册：" + skillId);
                 }
             }
         }

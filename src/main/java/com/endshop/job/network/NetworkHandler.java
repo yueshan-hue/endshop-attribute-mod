@@ -22,5 +22,26 @@ public class NetworkHandler {
                 SetJobPacket.CODEC,
                 SetJobPacket::handle
         );
+        
+        // 注册 服务端→客户端 的技能数据同步包
+        registrar.playToClient(
+                SyncSkillDataPacket.TYPE,
+                SyncSkillDataPacket.CODEC,
+                SyncSkillDataPacket::handle
+        );
+        
+        // 注册 服务端→客户端 的属性数据同步包
+        registrar.playToClient(
+                SyncAttributePacket.TYPE,
+                SyncAttributePacket.CODEC,
+                SyncAttributePacket::handle
+        );
+        
+        // 注册 客户端→服务端 的使用技能包
+        registrar.playToServer(
+                UseSkillPacket.TYPE,
+                UseSkillPacket.CODEC,
+                UseSkillPacket::handle
+        );
     }
 }

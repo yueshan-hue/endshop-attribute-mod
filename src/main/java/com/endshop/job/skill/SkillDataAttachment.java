@@ -65,15 +65,79 @@ public class SkillDataAttachment {
         /** 装备的技能槽位 <槽位索引，技能 ID> */
         private Map<Integer, String> equippedSkills;
         
+        /** 技能冷却时间映射表 <技能 ID, 冷却时间> */
+        private Map<String, Integer> skillCooldowns;
+        
         public SkillData() {
             this.unlockedSkills = new HashSet<>();
             this.skillLevels = new HashMap<>();
             this.equippedSkills = new HashMap<>();
+            this.skillCooldowns = new HashMap<>();
         }
         
         public SkillData(ListTag nbt) {
             this();
             fromNBT(nbt);
+        }
+        
+        /**
+         * 获取未加密的技能数据（用于网络同步）
+         */
+        public Set<String> getUnlockedSkillsSet() {
+            return unlockedSkills;
+        }
+        
+        public Map<String, Integer> getSkillLevelsMap() {
+            return skillLevels;
+        }
+        
+        public Map<Integer, String> getEquippedSkillsMap() {
+            return equippedSkills;
+        }
+        
+        /**
+         * 设置技能数据（用于网络同步）
+         */
+        public void setSkillData(Set<String> unlockedSkills, Map<String, Integer> skillLevels, Map<Integer, String> equippedSkills) {
+            this.unlockedSkills.clear();
+            this.unlockedSkills.addAll(unlockedSkills);
+            this.skillLevels.clear();
+            this.skillLevels.putAll(skillLevels);
+            this.equippedSkills.clear();
+            this.equippedSkills.putAll(equippedSkills);
+        }
+        
+        /**
+         * 设置技能数据（包含冷却时间，用于网络同步）
+         */
+        public void setSkillData(Set<String> unlockedSkills, Map<String, Integer> skillLevels, 
+                                 Map<Integer, String> equippedSkills, Map<String, Integer> skillCooldowns) {
+            this.unlockedSkills.clear();
+            this.unlockedSkills.addAll(unlockedSkills);
+            this.skillLevels.clear();
+            this.skillLevels.putAll(skillLevels);
+            this.equippedSkills.clear();
+            this.equippedSkills.putAll(equippedSkills);
+            this.skillCooldowns.clear();
+            this.skillCooldowns.putAll(skillCooldowns);
+        }
+        
+        /**
+         * 获取技能冷却时间
+         */
+        public int getSkillCooldown(String skillId) {
+            return skillCooldowns.getOrDefault(skillId, 0);
+        }
+        
+        /**
+         * 设置技能冷却时间
+         */
+        public void setSkillCooldown(String skillId, int cooldown) {
+            if (cooldown <= 0) {
+                skillCooldowns.remove(skillId);
+            } else {
+                skillCooldowns.put(skillId, cooldown);
+            }
         }
         
         /**
@@ -190,6 +254,12 @@ public class SkillDataAttachment {
                     }
                 }
                 
+                // 写入冷却时间（如果存在）
+                int cooldown = skillCooldowns.getOrDefault(skillId, 0);
+                if (cooldown > 0) {
+                    skillTag.putInt("cooldown", cooldown);
+                }
+                
                 listTag.add(skillTag);
             }
             
@@ -203,6 +273,7 @@ public class SkillDataAttachment {
             unlockedSkills.clear();
             skillLevels.clear();
             equippedSkills.clear();
+            skillCooldowns.clear();
             
             for (int i = 0; i < nbt.size(); i++) {
                 CompoundTag tag = nbt.getCompound(i);
@@ -216,6 +287,12 @@ public class SkillDataAttachment {
                 if (tag.contains("slot")) {
                     int slot = tag.getInt("slot");
                     equippedSkills.put(slot, skillId);
+                }
+                
+                // 读取冷却时间（如果存在）
+                if (tag.contains("cooldown")) {
+                    int cooldown = tag.getInt("cooldown");
+                    skillCooldowns.put(skillId, cooldown);
                 }
             }
         }

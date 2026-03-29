@@ -1,12 +1,16 @@
 package com.endshop.job.event;
 
 import com.endshop.job.data.JobDataAttachment;
+import com.endshop.job.network.SyncSkillDataPacket;
 import com.endshop.job.profession.Profession;
 import com.endshop.job.skill.SkillDataAttachment;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.HashMap;
 
 /**
  * 玩家登录事件处理 - 同步职业数据到客户端
@@ -35,6 +39,9 @@ public class PlayerLoginHandler {
                 System.out.println("  - " + skillId);
             }
             System.out.println("===========================================");
+            
+            // 同步技能数据到客户端
+            sendSkillDataToClient(serverPlayer, skillData);
         }
     }
     
@@ -46,9 +53,27 @@ public class PlayerLoginHandler {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             // 确保数据被正确复制
             JobDataAttachment.getJob(serverPlayer);
-            SkillDataAttachment.getSkillData(serverPlayer);
+            SkillDataAttachment.SkillData skillData = SkillDataAttachment.getSkillData(serverPlayer);
+            
+            // 同步技能数据到客户端
+            sendSkillDataToClient(serverPlayer, skillData);
             
             System.out.println("玩家 " + serverPlayer.getName().getString() + " 数据已克隆");
         }
+    }
+    
+    /**
+     * 发送技能数据到客户端
+     */
+    private static void sendSkillDataToClient(ServerPlayer player, SkillDataAttachment.SkillData skillData) {
+        SyncSkillDataPacket packet = new SyncSkillDataPacket(
+            skillData.getUnlockedSkillsSet(),
+            skillData.getSkillLevelsMap(),
+            skillData.getEquippedSkillsMap(),
+            new HashMap<>()  // 空的冷却时间映射
+        );
+        
+        PacketDistributor.sendToPlayer(player, packet);
+        System.out.println("[Network] 已发送技能同步包到客户端");
     }
 }
