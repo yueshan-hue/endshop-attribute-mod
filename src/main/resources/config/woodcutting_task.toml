@@ -1,0 +1,25 @@
+# 伐木任务配置
+# Woodcutting Task Configuration
+
+# 砍伐范围（半径，单位：格）
+woodcutting_radius=4
+
+# 砍树逻辑
+only_full_trees=true
+preserve_saplings=true
+preserve_mushrooms=true
+
+# 连锁砍树
+chain_chopping=true
+
+# 自动补种
+auto_replant=true
+
+# 采集目标树木类型
+target_trees=oak,spruce,birch,jungle,acacia,dark_oak
+
+# 掉落物自动拾取
+auto_pickup_drops=true
+
+# 最大砍伐数量（单次任务）
+max_trees_per_task=32

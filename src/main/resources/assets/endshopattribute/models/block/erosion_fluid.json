@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "still": "endshopattribute:block/erosion_still",
+    "flowing": "endshopattribute:block/erosion_flow"
+  }
+}

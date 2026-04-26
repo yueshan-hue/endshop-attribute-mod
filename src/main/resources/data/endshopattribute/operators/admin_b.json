@@ -1,0 +1,49 @@
+{
+  "operator_id": "admin_b",
+  "name": "管理员B",
+  "english_name": "Administrator B",
+  "profession": "SPECIALIST",
+  "rarity": 6,
+  "description": "神秘的终末地管理者(女),记忆缺失但拥有贯穿塔卫二历史的过去。",
+  "profile": {
+    "codename": "管理员",
+    "gender": "女",
+    "affiliation": "终末地",
+    "birthday": "未知",
+    "race": "未知",
+    "infection_status": "未知",
+    "infection_details": "档案资料缺失,无法确认。"
+  },
+  "attributes": {
+    "wisdom": 20,
+    "strength": 20,
+    "agility": 20,
+    "willpower": 20,
+    "primary_attribute": "wisdom",
+    "secondary_attribute": "willpower"
+  },
+  "physical_tests": {
+    "physical_strength": "卓越",
+    "combat_skills": "卓越",
+    "tactical_planning": "卓越",
+    "originium_arts_adaptability": "卓越"
+  },
+  "skills": [
+    "admin_composition_sequence",
+    "admin_lockdown_sequence",
+    "admin_bombardment_sequence",
+    "admin_damage_sequence"
+  ],
+  "stats": {
+    "base_health": 3000,
+    "base_attack": 200,
+    "base_defense": 150,
+    "physical_resistance": 0.40,
+    "elemental_resistance": 0.40
+  },
+  "personnel_summary": "你过去的生命贯穿了塔卫二至今的历史……\n\n档案资料缺失,无法提供更多信息。",
+  "archive_1": "你什么都回忆不起来。\n\n记忆像是被揉碎的梦境,只等随便某个念头兴起,便无影无踪。\n\n这让你偶尔焦躁,偶尔担忧,也让你有了一些空间思考。\n\n但更多时候,你无暇多想,你选择相信眼前的人,只需前行。\n\n也许记忆已经被你短暂地抛诸脑后……\n\n……所以,你什么都回忆不起来。",
+  "archive_2": "档案资料缺失。\n\n有关管理员B的过去记录已被加密或删除,目前无法访问。",
+  "archive_3": "档案资料缺失。\n\n建议向终末地高层申请查阅权限。",
+  "archive_4": "……那么,未来呢?\n\n这个问题的答案,也许只有时间能够揭晓。"
+}

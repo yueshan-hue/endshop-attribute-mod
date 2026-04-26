@@ -5,17 +5,17 @@ package com.endshop.job.skill;
  */
 public enum SkillSlot {
     
-    /** 槽位 1 - Q 键 */
-    SLOT_1("slot_1", 0, "q"),
+    /** 槽位 1 - 小键盘 1 */
+    SLOT_1("slot_1", 0, "kp_1"),
     
-    /** 槽位 2 - E 键 */
-    SLOT_2("slot_2", 1, "e"),
+    /** 槽位 2 - 小键盘 2 */
+    SLOT_2("slot_2", 1, "kp_2"),
     
-    /** 槽位 3 - R 键 */
-    SLOT_3("slot_3", 2, "r"),
+    /** 槽位 3 - 小键盘 3 */
+    SLOT_3("slot_3", 2, "kp_3"),
     
-    /** 槽位 4 - F 键 */
-    SLOT_4("slot_4", 3, "f");
+    /** 槽位 4 - 小键盘 4 */
+    SLOT_4("slot_4", 3, "kp_4");
     
     private final String name;
     private final int index;

@@ -27,13 +27,14 @@ public class SkillSelectionScreen extends Screen {
     private static final Map<Profession, List<String>> PROFESSION_SKILLS = new HashMap<>();
     
     static {
-        // 初始化各职业可使用的技能
+        // 初始化各职业可使用的技能（明日方舟八大职业）
         PROFESSION_SKILLS.put(Profession.MEDIC, List.of("quick_heal")); // 医疗职业 - 快速治疗
-        PROFESSION_SKILLS.put(Profession.GUARD, List.of("strength_boost")); // 近卫 - 力量强化
-        PROFESSION_SKILLS.put(Profession.VANGUARD, List.of("quick_heal", "strength_boost")); // 先锋 - 两个技能都可以
-        // 可以继续添加其他职业的技能...
+        PROFESSION_SKILLS.put(Profession.GUARD, List.of("strength_boost", "true_blade", "slash_dash", "cleave_charge", "sequence_shock")); // 近卫
+        PROFESSION_SKILLS.put(Profession.VANGUARD, List.of("quick_heal", "wisdom_boost", "agility_boost", "willpower_boost", "noise", "condensing_voice")); // 先锋
+        PROFESSION_SKILLS.put(Profession.SPECIALIST, List.of("burnout", "inferno")); // 特种
+        PROFESSION_SKILLS.put(Profession.DEFENDER, List.of("hypothermia", "saturation_defense")); // 重装
         
-        // 默认所有职业都可以使用所有技能（如果需要）
+        // 默认所有职业都可以使用基础技能
         for (Profession p : Profession.values()) {
             PROFESSION_SKILLS.putIfAbsent(p, List.of("quick_heal", "strength_boost"));
         }

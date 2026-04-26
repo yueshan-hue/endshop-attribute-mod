@@ -1,0 +1,40 @@
+# 守护任务配置
+# Guard Task Configuration
+
+# 守护模式：area（区域守护）, follow（跟随守护）
+guard_mode=area
+
+# 区域守护设置（area 模式下使用）
+guard_area_x1=-5
+guard_area_y1=0
+guard_area_z1=-5
+guard_area_x2=5
+guard_area_y2=64
+guard_area_z2=5
+
+# 跟随守护设置（follow 模式下使用）
+follow_target_player=
+
+# 警戒范围（半径，单位：格）
+alert_radius=12
+
+# 驱逐目标
+expel_hostile_mobs=true
+expel_malicious_players=false
+
+# 自动反击
+auto_counter_attack=true
+counter_chase_distance=8
+
+# 区域保护
+area_protection=true
+attack_block_breakers=true
+
+# 自动回位
+auto_return_to_post=true
+return_delay_seconds=10
+
+# 喊话提示
+chat_alert_on_enemy=true
+sound_alert_on_enemy=true
+alert_sound=entity.iron_golem.attack

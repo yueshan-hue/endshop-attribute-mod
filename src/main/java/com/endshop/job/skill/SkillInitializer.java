@@ -15,6 +15,7 @@ import com.endshop.job.skill.skills.NoiseSkill;
 import com.endshop.job.skill.skills.CondensingVoiceSkill;
 import com.endshop.job.skill.skills.HypothermiaSkill;
 import com.endshop.job.skill.skills.SaturationDefenseSkill;
+import com.endshop.job.skill.skills.IceCrystalSkill;
 import com.endshop.job.profession.Profession;
 
 /**
@@ -28,6 +29,9 @@ public class SkillInitializer {
     public static void init() {
         // 注册通用技能
         registerGenericSkills();
+        
+        // 注册管理员干员技能
+        registerAdminSkills();
         
         // 注册职业技能
         registerJobSkills();
@@ -51,6 +55,14 @@ public class SkillInitializer {
     }
     
     /**
+     * 注册管理员干员技能
+     */
+    private static void registerAdminSkills() {
+        // 注册管理员干员的所有技能
+        com.endshop.job.skill.admin.AdminSkills.register();
+    }
+    
+    /**
      * 注册职业技能（特定职业专属）
      */
     private static void registerJobSkills() {
@@ -60,7 +72,7 @@ public class SkillInitializer {
         SkillRegistry.register(new CleaveChargeSkill(), Profession.GUARD.name());
         SkillRegistry.register(new SequenceShockSkill(), Profession.GUARD.name());
         
-        // 突击职业专属技能 - 莱万汀
+        // 术师职业专属技能 - 莱万汀
         SkillRegistry.register(new BurnoutSkill(), Profession.SPECIALIST.name());
         SkillRegistry.register(new InfernoSkill(), Profession.SPECIALIST.name());
         
@@ -71,5 +83,8 @@ public class SkillInitializer {
         // 重装职业专属技能 - 昼雪
         SkillRegistry.register(new HypothermiaSkill(), Profession.DEFENDER.name());
         SkillRegistry.register(new SaturationDefenseSkill(), Profession.DEFENDER.name());
+        
+        // 测试技能 - 冰晶（所有职业可用）
+        SkillRegistry.register(new IceCrystalSkill());
     }
 }

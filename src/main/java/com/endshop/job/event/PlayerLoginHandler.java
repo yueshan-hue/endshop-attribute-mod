@@ -1,10 +1,13 @@
 package com.endshop.job.event;
 
+import com.endshop.job.EndshopJob;
 import com.endshop.job.data.JobDataAttachment;
+import com.endshop.job.item.JobBookItem;
 import com.endshop.job.network.SyncSkillDataPacket;
 import com.endshop.job.profession.Profession;
 import com.endshop.job.skill.SkillDataAttachment;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -26,6 +29,11 @@ public class PlayerLoginHandler {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             // 获取玩家的职业（这会触发数据加载）
             Profession playerJob = JobDataAttachment.getJob(serverPlayer);
+            
+            // 如果玩家还没有选择职业，给予职业书
+            if (playerJob == Profession.NONE) {
+                giveJobBook(serverPlayer);
+            }
             
             // 获取玩家的技能数据
             SkillDataAttachment.SkillData skillData = SkillDataAttachment.getSkillData(serverPlayer);
@@ -75,5 +83,25 @@ public class PlayerLoginHandler {
         
         PacketDistributor.sendToPlayer(player, packet);
         System.out.println("[Network] 已发送技能同步包到客户端");
+    }
+    
+    /**
+     * 给予玩家职业书
+     */
+    private static void giveJobBook(ServerPlayer player) {
+        // 检查玩家背包中是否已有职业书
+        for (ItemStack stack : player.getInventory().items) {
+            if (!stack.isEmpty() && stack.getItem() instanceof JobBookItem) {
+                return; // 已有职业书，不重复给予
+            }
+        }
+        
+        // 给予职业书
+        ItemStack jobBook = new ItemStack(EndshopJob.JOB_BOOK.get());
+        boolean added = player.getInventory().add(jobBook);
+        
+        if (added) {
+            System.out.println("已给新玩家 " + player.getName().getString() + " 职业书");
+        }
     }
 }

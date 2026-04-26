@@ -9,7 +9,7 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 /**
  * 网络包注册
  */
-@EventBusSubscriber(modid = EndshopJob.MODID, bus = EventBusSubscriber.Bus.MOD) // MOD bus
+@EventBusSubscriber(modid = EndshopJob.MODID) // MOD bus
 public class NetworkHandler {
 
     @SubscribeEvent
@@ -42,6 +42,20 @@ public class NetworkHandler {
                 UseSkillPacket.TYPE,
                 UseSkillPacket.CODEC,
                 UseSkillPacket::handle
+        );
+        
+        // 注册 服务端→客户端 的干员列表同步包
+        registrar.playToClient(
+                SyncOperatorListPacket.TYPE,
+                SyncOperatorListPacket.CODEC,
+                SyncOperatorListPacket::handle
+        );
+        
+        // 注册 客户端→服务端 的召唤干员包
+        registrar.playToServer(
+                SummonOperatorPacket.TYPE,
+                SummonOperatorPacket.CODEC,
+                SummonOperatorPacket::handle
         );
     }
 }

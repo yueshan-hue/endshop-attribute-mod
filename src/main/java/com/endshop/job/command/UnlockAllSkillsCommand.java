@@ -14,7 +14,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import java.util.HashMap;
 
 /**
- * 全解锁技能指令 - 管理员专用
+ * 全解锁技能指令
  */
 @EventBusSubscriber
 public class UnlockAllSkillsCommand {
@@ -23,7 +23,6 @@ public class UnlockAllSkillsCommand {
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         event.getDispatcher().register(
             Commands.literal("unlockallskills")
-                .requires(source -> source.hasPermission(2)) // 需要管理员权限
                 .executes(context -> {
                     ServerPlayer player = context.getSource().getPlayerOrException();
                     SkillDataAttachment.SkillData skillData = 

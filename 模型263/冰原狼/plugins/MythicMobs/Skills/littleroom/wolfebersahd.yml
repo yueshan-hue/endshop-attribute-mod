@@ -1,0 +1,310 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+wolfeRANDOMFOLEY:
+  Skills:
+  - randomskill{s=wolfeRANDOMFOLEY1,wolfeRANDOMFOLEY2,wolfeRANDOMFOLEY3} @self
+  
+wolfeRANDOMFOLEY1:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.foley1;v=1;sc=HOSTILE} @self
+  
+wolfeRANDOMFOLEY2:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.foley2;v=1;sc=HOSTILE} @self
+  
+wolfeRANDOMFOLEY3:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.foley3;v=1;sc=HOSTILE} @self
+
+wolfeRANDOMSLASH:
+  Skills:
+  - randomskill{s=wolfeRANDOMSLASH1,wolfeRANDOMSLASH2,wolfeRANDOMSLASH3} @self
+  
+wolfeRANDOMSLASH1:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.slash1;v=1;sc=HOSTILE} @self
+  
+wolfeRANDOMSLASH2:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.slash2;v=1;sc=HOSTILE} @self
+  
+wolfeRANDOMSLASH3:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.slash3;v=1;sc=HOSTILE} @self
+
+wolfeSWIPE1sync:
+  Skills:
+  - CancelEvent
+  - skill{s=wolfeSWIPE1} @self
+  
+wolfeSWIPE1:
+  Conditions:
+  - targetwithin{d=4} true
+  - offgcd true
+  Skills:  
+  - skill{s=wolfeRANDOMFOLEY} @self
+  - lunge{velocity=.5;velocityY=0} @Target
+  - look{headOnly=false;immediately=true;repeat=10;repeatInterval=1} @Target
+  - gcd{ticks=10}
+  - state{s=claw1} @self
+  - totem{c=1;md=2;oH=wolfeSWIPEDAMAGE;hr=1.25;vr=1.25;repeat=10;repeatInterval=1;hnp=true} @ModelPart{mid=wolfebersahd;p=right_hand}
+  - delay 20
+  - skill{s=wolfeSWIPE2sync} @self .5
+  
+wolfeSWIPE2sync:
+  Skills:
+  - CancelEvent
+  - skill{s=wolfeSWIPE2} @self
+  
+wolfeSWIPE2:
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd true
+  Skills:
+  - skill{s=wolfeRANDOMFOLEY} @self
+  - lunge{velocity=.5;velocityY=0} @Target
+  - look{headOnly=false;immediately=true;repeat=10;repeatInterval=1} @Target
+  - gcd{ticks=10}
+  - state{s=claw2} @self
+  - totem{c=1;md=2;oH=wolfeSWIPEDAMAGE;hr=1.25;vr=1.25;repeat=10;repeatInterval=1;hnp=true} @ModelPart{mid=wolfebersahd;p=left_hand}
+  - delay 20
+  - skill{s=wolfeSWIPE1sync} @self .5
+  
+wolfeSWIPEDAMAGE:
+  Cooldown: 1
+  Skills:
+  - skill{s=wolfeRANDOMSLASH} @self
+  - damage{a=5}
+  - effect:particles{particle=block;m=redstone_block;y=1;amount=10;hS=.25;vS=.25}
+  
+wolfeBANHAMMERsync:
+  Skills:
+  - CancelEvent
+  - skill{s=wolfeBANHAMMER} @self
+  
+wolfeBANHAMMER:
+  Cooldown: 5
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd true
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.hammerswing;v=1;sc=HOSTILE} @self
+  - look{headOnly=false;immediately=true;repeat=40;repeatInterval=1} @Target
+  - setspeed{speed=0;type=walking} @self
+  - gcd{ticks=40}
+  - state{s=hammer1} @self
+  #- ChangePart{mid=wolfebersahd;pid=banhammer;nmid=wolfebersahd_parts;npid=banhammer} @self
+  - effect:particles{particle=poof;amount=50;hs=1;vs=1} @ModelPart{mid=wolfebersahd;p=banhammer}
+  - effect:particles{particle=crit;amount=25;hs=1;vs=1} @ModelPart{mid=wolfebersahd;p=banhammer}
+  - delay 10
+  - lunge{velocity=.5;velocityY=0} @forward{f=-2}
+  #- effect:particles{particle=flame;amount=200;repeat=15;repeatInterval=1} @ModelPart{mid=wolfebersahd;p=banhammer;offset=LOCAL;y=2}
+  - totem{c=1;md=2;oH=wolfeBANHAMMERDAMAGE;hr=1.5;vr=1.5;repeat=15;repeatInterval=1;hnp=true} @ModelPart{mid=wolfebersahd;p=banhammer;offset=LOCAL;y=1}
+  - delay 15
+  #- ChangePart{mid=wolfebersahd;pid=banhammer;nmid=wolfebersahd;npid=banhammer} @self
+  - setspeed{speed=1;type=walking} @self
+  
+wolfeBANHAMMERDAMAGE:
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.hammerhit;v=1;sc=HOSTILE} @self
+  - effect:particles{particle=block;m=redstone_block;y=1;amount=10;hS=.25;vS=.25}
+  - effect:particles{particle=flame;amount=3;hS=.25;vS=.25;repeat=30;repeatInterval=1}
+  - effect:particles{particle=large_smoke;amount=3;hS=.25;vS=.25;repeat=30;repeatInterval=1}
+  - damage{a=25}
+  - throw{velocity=25;velocityY=5}
+  
+wolfeKICKsync:
+  Skills:
+  - CancelEvent
+  - skill{s=wolfeKICK} @self
+  
+wolfeKICK:
+  Cooldown: 10
+  Conditions:
+  - targetwithin{d=5} true
+  - targetnotwithin{d=2} true
+  - offgcd true
+  Skills:
+  - setspeed{speed=0;type=walking} @self
+  - gcd{ticks=40}
+  - state{s=knockup} @self
+  - delay 10
+  - skill{s=wolfeRANDOMFOLEY} @self
+  - lunge{velocity=1;velocityY=0} @target
+  - totem{c=1;md=2;oH=wolfeKICKDAMAGE;hr=1.5;vr=1.5;repeat=10;repeatInterval=1;hnp=true} @ModelPart{mid=wolfebersahd;p=left_foot}
+  - delay 10
+  - setspeed{speed=1;type=walking} @self
+  - threat{amount=0;m=set} @target
+  
+wolfeKICKDAMAGE:
+  Skills:
+  - effect:particles{particle=block;m=redstone_block;y=1;amount=10;hS=.25;vS=.25}
+  - damage{a=5}
+  - throw{velocity=3;velocityY=5}
+  
+wolfeSLIDEKICK:
+  Cooldown: 10
+  Conditions:
+  - incombat true
+  - targetwithin{d=8} true
+  - targetnotwithin{d=5} true
+  - offgcd true
+  Skills:
+  - skill{s=wolfeRANDOMFOLEY} @self
+  - effect:particles{particle=campfire_cosy_smoke;amount=3;hS=.25;vS=.25;repeat=30;repeatInterval=1} @self
+  - look{headOnly=false;immediately=true;repeat=20;repeatInterval=1} @Target
+  - gcd{ticks=30}
+  - state{s=slidekick} @self
+  - lunge{velocity=1.5;velocityY=-1;repeat=5;repeatInterval=1} @target
+  - totem{c=1;md=2;oH=wolfeSLIDEKICKDAMAGE;hr=1;vr=1;repeat=30;repeatInterval=1;hnp=true} @ModelPart{mid=wolfebersahd;p=right_foot}
+  - delay 10
+  - threat{amount=0;m=set} @target
+  
+wolfeSLIDEKICKDAMAGE:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.bodyimpact;v=1;sc=HOSTILE} @self
+  - effect:particles{particle=block;m=redstone_block;y=1;amount=10;hS=.25;vS=.25}
+  - damage{a=4}
+  - throw{velocity=10;velocityY=2}
+  
+  
+wolfeROAR:
+  Cooldown: 25
+  Conditions:
+  - incombat true
+  - targetwithin{d=12} true
+  - targetnotwithin{d=4} true
+  - offgcd true
+  Skills:
+  - gcd{ticks=50}
+  - setai{ai=false} @self
+  - setspeed{speed=0;type=walking} @self
+  - state{s=roar} @self
+  - delay 10
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.roar;v=1;sc=HOSTILE} @self
+  - skill{s=wolfeROARFX} @pir{r=16}
+  - delay 40
+  - setai{ai=true} @self
+  - setspeed{speed=2;type=walking} @self
+  - delay 120
+  - setspeed{speed=1;type=walking} @self
+  
+wolfeROARFX:
+  Skills:  
+  - potion{type=SLOW;duration=60;level=1;p=false;i=false} @eir{r=16}
+  - throw{velocity=15;velocityY=2} @eir{r=8}
+  - recoil{r=1;pitch=-3to-3} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=3to3} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-3to-3} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=3to3} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-2to-2} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=2to2} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-2to-2} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=2to2} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=-1to-1} @pir{r=16}
+  - delay 1
+  - recoil{r=1;pitch=1to1} @pir{r=16}
+  
+wolfeINSTALL:
+  Cooldown: 999999
+  Conditions:
+  - incombat true
+  - targetwithin{d=12} true
+  - targetnotwithin{d=4} true
+  - offgcd true
+  Skills:
+  - clearThreat{} @self
+  - effect:particles{particle=portal;amount=20;repeat=20;repeatInterval=2;hs=1;vs=1} @ModelPart{mid=wolfebersahd;p=left_hand}
+  - effect:particlering{particle=campfire_cosy_smoke;radius=5;points=32;amount=1;hS=.25;vS=.25;repeat=20;repeatInterval=2} @self
+  - gcd{ticks=170}
+  - setAI{ai=false} @self
+  - throw{velocity=1;velocityY=0;repeat=150;repeatInterval=1} @eir{r=5}
+  - state{s=install} @self
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @self
+  - sendtitle{title="";subtitle="NOW FOR MY ULTIMATE ATTACK!";d=20} @PlayersInRadius{r=30}
+  #- message{m="<mob.name>&f<&co> NOW FOR MY ULTIMATE ATTACK!"} @PlayersInRadius{r=30}
+  - delay 50
+  - effect:particles{particle=flash;amount=1} @ModelPart{mid=wolfebersahd;p=left_hand}
+  - ChangePart{mid=wolfebersahd;pid=left_forearm;nmid=wolfebersahd_parts;npid=leather_horse_armor} @self
+  - ChangePart{mid=wolfebersahd;pid=left_hand;nmid=wolfebersahd_parts;npid=leather_horse_armor} @self
+  - ChangePart{mid=wolfebersahd;pid=left_finger2;nmid=wolfebersahd_parts;npid=leather_horse_armor} @self
+  - delay 20
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @self
+  - sendtitle{title="";subtitle="WHAT?";d=20} @PlayersInRadius{r=30}
+  - delay 20
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @self
+  - sendtitle{title="";subtitle="sigh";d=20} @PlayersInRadius{r=30}
+  - delay 20
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @self
+  - sendtitle{title="";subtitle="Did you even read the <&nm>how<&da>to<&da>install?";d=60} @PlayersInRadius{r=30}
+  - delay 30
+  - ChangePart{mid=wolfebersahd;pid=left_forearm;nmid=wolfebersahd;npid=left_forearm} @self
+  - ChangePart{mid=wolfebersahd;pid=left_hand;nmid=wolfebersahd;npid=left_hand} @self
+  - ChangePart{mid=wolfebersahd;pid=left_finger2;nmid=wolfebersahd;npid=left_finger2} @self
+  - effect:particles{particle=cloud;amount=10;hs=.5;vs=.5} @ModelPart{mid=wolfebersahd;p=left_hand}
+  - effect:particles{particle=cloud;amount=10;hs=.5;vs=.5} @ModelPart{mid=wolfebersahd;p=left_forearm}
+  - delay 20
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @self
+  - sendtitle{title="";subtitle="There we go!";d=20} @PlayersInRadius{r=30}
+  - setAI{ai=true} @self
+  
+wolfeWRONGCHANNEL:
+  Cooldown: 15
+  Conditions:  
+  - targetinlineofsight false
+  - incombat true
+  - targetwithin{d=24} true
+  - offgcd true
+  Skills:
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.discord;v=.25;sc=HOSTILE} @target
+  - sendtitle{title="";subtitle="Youre in the wrong channel!";d=40} @target
+  - delay 40
+  - effect:particles{particle=poof;amount=50;hs=.5;vs=.75;y=1} @target
+  - forcepull{spread=2} @target
+  - delay 1
+  - effect:particles{particle=poof;amount=50;hs=.5;vs=.75;y=1} @target
+  
+  
+wolfeDEATH:
+  Skills:
+  - delay 15
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.bodyimpact;v=1;sc=HOSTILE} @self
+  - delay 10
+  - sound{s=littleroom_wolfebersahd:littleroom.wolfebersahd.bodyimpact;v=.5;sc=HOSTILE;p=.5} @self
+  - delay 55
+  - effect:particles{particle=poof;amount=120;hs=1;vs=1} @ModelPart{mid=wolfebersahd;p=torso}
+  - model{mid=wolfebersahd;r=true} @self
+  
+  

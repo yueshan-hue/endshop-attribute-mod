@@ -1,0 +1,42 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+
+wolfebersahd:
+  Type: RAVAGER
+  Display: 'WolfebersaHD'
+  Health: 1000
+  AITargetSelectors:
+  - players
+  Modules:
+    ThreatTable: true  
+  BossBar:
+    Enabled: true
+    Title: 'WolfebersaHD'
+    Range: 32
+    Color: PURPLE
+    Style: SOLID
+  Options:
+    Silent: true
+    PreventOtherDrops: true
+    Despawn: false
+    KnockbackResistance: 1
+    Collidable: true
+    FollowRange: 32
+    MovementSpeed: .25
+  Skills:
+  - skill{s=wolfeKICKsync} @self ~onTimer:20
+  - skill{s=wolfeWRONGCHANNEL} @self ~onTimer:20
+  - skill{s=wolfeSLIDEKICK} @self ~onTimer:20
+  - skill{s=wolfeROAR} @self ~onTimer:20
+  - skill{s=wolfeINSTALL} @self ~onTimer:60 <50%
+  - defaultstate{m=wolfebersahd;t=walk;s=run} @self @self ~onEnterCombat
+  - defaultstate{m=wolfebersahd;t=walk;s=walk} @self @self ~onDropCombat
+  - ChangePart{mid=wolfebersahd;pid=banhammer;nmid=wolfebersahd_parts;npid=banhammer} @self ~onSpawn
+  - randomskill{skills=wolfeSWIPE1sync,wolfeSWIPE2sync,wolfeBANHAMMERsync;sync=true} @self ~onAttack
+  - skill{s=wolfeDEATH} @self ~onDeath
+  - model{mid=wolfebersahd;n=false;i=true} @self ~onSpawn            #sets the model
+  - model{mid=wolfebersahd;n=false;i=true} @self ~onLoad            #sets the model
+  - bodyclamp{m=wolfebersahd;c=10} @self ~onSpawn

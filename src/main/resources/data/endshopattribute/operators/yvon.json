@@ -1,0 +1,30 @@
+{
+  "operator_id": "yvon",
+  "name": "伊冯",
+  "english_name": "Yvon",
+  "profession": "GUARD",
+  "rarity": 5,
+  "description": "擅长对敌人造成物理伤害，并通过击飞、倒地和震退等物理效果控制敌人。",
+  "attributes": {
+    "wisdom": 10,
+    "strength": 14,
+    "agility": 13,
+    "willpower": 8,
+    "primary_attribute": "strength",
+    "secondary_attribute": "agility"
+  },
+  "skills": [
+    "true_blade",
+    "slash_dash",
+    "cleave_charge",
+    "sequence_shock"
+  ],
+  "stats": {
+    "base_health": 2000,
+    "base_attack": 150,
+    "base_defense": 80,
+    "physical_resistance": 0.15,
+    "elemental_resistance": 0.10
+  },
+  "lore": "近卫干员，精通剑术与战术指挥。"
+}

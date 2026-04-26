@@ -1,0 +1,57 @@
+{
+   "littleroom.wolfebersahd.bodyimpact":{
+		 "sounds": [
+			"littleroom/wolfebersahd/bodyimpact"
+		 ]
+	},
+   "littleroom.wolfebersahd.discord":{
+		 "sounds": [
+			"littleroom/wolfebersahd/discord"
+		 ]
+	},
+   "littleroom.wolfebersahd.foley1":{
+		 "sounds": [
+			"littleroom/wolfebersahd/foley1"
+		 ]
+	},
+   "littleroom.wolfebersahd.foley2":{
+		 "sounds": [
+			"littleroom/wolfebersahd/foley2"
+		 ]
+	},
+   "littleroom.wolfebersahd.foley3":{
+		 "sounds": [
+			"littleroom/wolfebersahd/foley3"
+		 ]
+	},
+   "littleroom.wolfebersahd.hammerhit":{
+		 "sounds": [
+			"littleroom/wolfebersahd/hammerhit"
+		 ]
+	},
+   "littleroom.wolfebersahd.hammerswing":{
+		 "sounds": [
+			"littleroom/wolfebersahd/hammerswing"
+		 ]
+	},
+   "littleroom.wolfebersahd.roar":{
+		 "sounds": [
+			"littleroom/wolfebersahd/roar"
+		 ]
+	},
+   "littleroom.wolfebersahd.slash1":{
+		 "sounds": [
+			"littleroom/wolfebersahd/slash1"
+		 ]
+	},
+   "littleroom.wolfebersahd.slash2":{
+		 "sounds": [
+			"littleroom/wolfebersahd/slash2"
+		 ]
+	},
+   "littleroom.wolfebersahd.slash3":{
+		 "sounds": [
+			"littleroom/wolfebersahd/slash3"
+		 ]
+	}
+}

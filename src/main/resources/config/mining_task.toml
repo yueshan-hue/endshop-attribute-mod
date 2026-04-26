@@ -1,0 +1,34 @@
+# 挖矿任务配置
+# Mining Task Configuration
+
+# 采集范围（半径，单位：格）
+mining_radius=5
+
+# 优先采集的矿石列表（优先级从高到低）
+priority_ores=diamond,gold_ore,iron_ore,copper_ore,coal_ore
+
+# 挖掘深度设置
+min_y=-60
+max_y=32
+
+# 避障设置
+avoid_bedrock=true
+avoid_near_lava=true
+avoid_near_water=true
+lava_water_distance=2
+
+# 背包满处理
+full_backpack_action=return_to_storage
+storage_point_x=0
+storage_point_y=64
+storage_point_z=0
+auto_discard_trash=true
+trash_items=cobblestone,dirt,gravel,sand
+
+# 连锁挖矿
+chain_mining=true
+max_chain_count=64
+
+# 火把自动放置
+auto_place_torch=true
+torch_interval=37

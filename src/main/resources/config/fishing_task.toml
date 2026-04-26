@@ -1,0 +1,32 @@
+# 钓鱼任务配置
+# Fishing Task Configuration
+
+# 钓鱼区域设置
+fishing_mode=follow_player
+fixed_x=0
+fixed_y=64
+fixed_z=0
+
+# 自动抛竿
+auto_cast=true
+cast_interval=3
+
+# 自动收杆
+auto_reel=true
+reel_delay_ticks=5
+
+# 物品过滤
+filter_enabled=true
+keep_treasures=true
+treasure_items=enchanted_book,name_tag,saddle,bowl,fishing_rod
+auto_discard_junk=true
+junk_items=stick,bowl,leather_boots,rotten_flesh,string
+
+# 防摔设置
+min_health_to_continue=4.0
+
+# 持续时间（分钟，0表示无限）
+duration_minutes=0
+
+# 自动整理
+auto_sort=true

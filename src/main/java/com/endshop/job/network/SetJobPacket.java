@@ -80,7 +80,7 @@ public record SetJobPacket(String jobName) implements CustomPacketPayload {
     private static void unlockJobSkills(ServerPlayer player, Profession profession) {
         SkillDataAttachment.SkillData skillData = SkillDataAttachment.getSkillData(player);
             
-        // 获取该职业对应的技能（直接在这里定义映射）
+        // 获取该职业对应的技能（明日方舟八大职业）
         Map<Profession, List<String>> professionSkills = new HashMap<>();
         professionSkills.put(Profession.MEDIC, List.of("quick_heal"));
         professionSkills.put(Profession.GUARD, List.of("strength_boost", "true_blade", "slash_dash", "cleave_charge", "sequence_shock"));
@@ -88,7 +88,7 @@ public record SetJobPacket(String jobName) implements CustomPacketPayload {
         professionSkills.put(Profession.SPECIALIST, List.of("burnout", "inferno"));
         professionSkills.put(Profession.DEFENDER, List.of("hypothermia", "saturation_defense"));
             
-        // 默认所有职业都可以使用所有技能
+        // 默认所有职业都可以使用基础技能
         for (Profession p : Profession.values()) {
             professionSkills.putIfAbsent(p, List.of("quick_heal", "strength_boost"));
         }
@@ -119,18 +119,56 @@ public record SetJobPacket(String jobName) implements CustomPacketPayload {
         int agility = AttributeDataAttachment.DEFAULT_AGILITY;
         int willpower = AttributeDataAttachment.DEFAULT_WILLPOWER;
             
-        // 根据职业调整属性
+        // 根据职业调整属性（明日方舟八大职业）
         if (profession == Profession.VANGUARD) {
             // 先锋干员：智识 12，力量 8，敏捷 14，意志 11
             wisdom = 12;
             strength = 8;
             agility = 14;
             willpower = 11;
+        } else if (profession == Profession.GUARD) {
+            // 近卫干员：主/副能力为敏捷或力量
+            wisdom = 10;
+            strength = 14;
+            agility = 13;
+            willpower = 8;
+        } else if (profession == Profession.DEFENDER) {
+            // 重装干员：主/副能力为力量或意志
+            wisdom = 8;
+            strength = 13;
+            agility = 7;
+            willpower = 14;
+        } else if (profession == Profession.SNIPER) {
+            // 狙击干员：主/副能力为敏捷或智识
+            wisdom = 12;
+            strength = 9;
+            agility = 15;
+            willpower = 7;
+        } else if (profession == Profession.SPECIALIST) {
+            // 特种干员：没有明确倾向性
+            wisdom = 11;
+            strength = 10;
+            agility = 11;
+            willpower = 10;
+        } else if (profession == Profession.MEDIC) {
+            // 医疗干员：主/副能力为意志或智识
+            wisdom = 13;
+            strength = 6;
+            agility = 8;
+            willpower = 15;
+        } else if (profession == Profession.CASTER) {
+            // 术师干员：主/副能力为智识或意志
+            wisdom = 15;
+            strength = 6;
+            agility = 8;
+            willpower = 12;
+        } else if (profession == Profession.SUPPORTER) {
+            // 辅助干员：主/副能力为意志或智识
+            wisdom = 13;
+            strength = 7;
+            agility = 9;
+            willpower = 14;
         }
-        // 可以在这里添加其他职业的属性调整
-        // else if (profession == Profession.MEDIC) {
-        //     // 医疗职业属性...
-        // }
             
         // 应用新属性
         AttributeDataAttachment.PlayerAttributes newAttributes = new AttributeDataAttachment.PlayerAttributes(

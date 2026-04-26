@@ -35,6 +35,24 @@ public class EndshopEntityRenderers {
         registerEntityRenderer(event, "admin_a", EndshopEntityTypes.ADMIN_A.get());
         registerEntityRenderer(event, "yingshi", EndshopEntityTypes.YINGSHI.get());
         registerEntityRenderer(event, "saixi", EndshopEntityTypes.SAIXI.get());
+        registerEntityRenderer(event, "junwei", EndshopEntityTypes.JUNWEI.get());
+        registerEntityRenderer(event, "aidera", EndshopEntityTypes.AIDERA.get());
+        
+        // 注册技能特效实体渲染器
+        event.registerEntityRenderer(EndshopEntityTypes.SKILL_EFFECT.get(), 
+            SkillEffectEntityRenderer::new);
+        
+        // 注册 GeckoLib 技能特效实体渲染器
+        event.registerEntityRenderer(EndshopEntityTypes.GECKO_SKILL_EFFECT.get(),
+            GeckoSkillEffectEntityRenderer::new);
+        
+        // 注册射流无人机渲染器
+        event.registerEntityRenderer(EndshopEntityTypes.JET_DRONE.get(),
+            JetDroneRenderer::new);
+        
+        // 注册侵蚀核心渲染器
+        event.registerEntityRenderer(EndshopEntityTypes.EROSION_CORE.get(),
+            ErosionCoreRenderer::new);
     }
 
     private static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event, String name, EntityType<? extends EndshopEntity> entityType) {

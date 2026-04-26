@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "endshopattribute:item/zhuang_fangyi_art_da_ju_yi_ding"
+  }
+}

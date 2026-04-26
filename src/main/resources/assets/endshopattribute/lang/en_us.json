@@ -3,6 +3,11 @@
 
   "item.endshopattribute.job_book": "Job Book",
   "item.endshopattribute.job_book.tooltip": "Right-click to open the job selection menu",
+  "item.endshopattribute.jet_drone": "Jet Drone",
+  "item.endshopattribute.erosion_bucket": "Erosion Bucket",
+  "item.endshopattribute.erosion_core_item": "Erosion Core Fragment",
+
+  "entity.endshopattribute.erosion_core": "Erosion Core",
 
   "gui.endshopattribute.job_selection.title": "Choose Your Job",
   "gui.endshopattribute.job_selection.clear": "Clear Job",
@@ -21,15 +26,27 @@
   "skill.strength_boost.name": "Strength Boost",
   "skill.strength_boost.desc": "Permanently increases attack damage, +0.5 per level",
 
+  "effect.endshopattribute.cold_attachment": "Cold Attachment",
+  "effect.endshopattribute.burning_attachment": "Burning Attachment",
+  "effect.endshopattribute.electromagnetic_attachment": "Electromagnetic Attachment",
+  "effect.endshopattribute.nature_attachment": "Nature Attachment",
+  "effect.endshopattribute.erosion": "Erosion",
+
   "skill.slot.slot_1": "Skill Slot 1 [Q]",
   "skill.slot.slot_2": "Skill Slot 2 [E]",
   "skill.slot.slot_3": "Skill Slot 3 [R]",
   "skill.slot.slot_4": "Skill Slot 4 [F]",
+  "key.endshopattribute.open_skill_screen": "Open Skill Screen [B]",
+  "key.endshopattribute.summon_tool": "Summon Tool [V]",
   "gui.endshopattribute.skill.equip": "Equip Skill",
   "gui.endshopattribute.skill.unequip": "Unequip Skill",
   "gui.endshopattribute.skill.no_skill": "No Skill Equipped",
   "gui.endshopattribute.skill.equipment": "Skill Equipment",
   "gui.endshopattribute.skill.selection": "Select Skill",
 
-  "endshopattribute.configuration.title": "Endshop Job Config"
+  "endshopattribute.configuration.title": "Endshop Job Config",
+
+  "config.endshopattribute.enable_erosion": "Enable Erosion System",
+  "config.endshopattribute.enable_erosion_fluid": "Enable Erosion Fluid Effect",
+  "config.endshopattribute.enable_erosion_core_spawn": "Enable Erosion Core Spawning"
 }

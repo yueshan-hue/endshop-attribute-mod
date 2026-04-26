@@ -1,0 +1,31 @@
+{
+  "_deprecated": true,
+  "_deprecation_note": "此档案已废弃，请使用 etra.json（埃特拉完整版）",
+  "_migrate_to": "etra",
+  "operator_id": "etera",
+  "name": "埃特拉",
+  "english_name": "Estella",
+  "profession": "VANGUARD",
+  "rarity": 5,
+  "description": "先锋干员，擅长快速部署和控制战场节奏。",
+  "attributes": {
+    "wisdom": 12,
+    "strength": 8,
+    "agility": 14,
+    "willpower": 11,
+    "primary_attribute": "agility",
+    "secondary_attribute": "wisdom"
+  },
+  "skills": [
+    "noise",
+    "condensing_voice"
+  ],
+  "stats": {
+    "base_health": 1600,
+    "base_attack": 120,
+    "base_defense": 60,
+    "physical_resistance": 0.20,
+    "elemental_resistance": 0.15
+  },
+  "lore": "先锋干员，拥有出色的机动性和控制能力。"
+}

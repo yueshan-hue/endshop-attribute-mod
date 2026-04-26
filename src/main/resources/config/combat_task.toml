@@ -1,0 +1,39 @@
+# 打怪任务配置
+# Combat Task Configuration
+
+# 攻击范围（半径，单位：格）
+combat_radius=4
+
+# 优先攻击目标列表（优先级从高到低）
+priority_targets=zombie,skeleton,creeper,spider,phantom
+
+# 不攻击目标列表
+safe_targets=villager,iron_golem,wolf,cat,parrot,donkey,mule,horse
+
+# 战斗策略：melee（近战）, ranged（远程）
+combat_strategy=melee
+
+# 近战设置
+melee_distance=1
+
+# 远程设置
+ranged_retreat=true
+min_ranged_distance=3
+
+# 自动回血
+auto_heal=true
+heal_threshold_percent=50
+heal_items=cooked_beef,golden_carrot,bread,apple
+
+# 自动切换武器
+auto_switch_weapon=true
+weapon_preferences=
+    zombie=iron_sword
+    skeleton=bow
+    creeper=iron_sword
+    spider=iron_sword
+    phantom=bow
+
+# 追击设置
+max_chase_distance=16
+return_to_origin=true

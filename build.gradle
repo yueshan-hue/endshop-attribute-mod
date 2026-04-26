@@ -18,6 +18,14 @@ version = mod_version
 group = mod_group_id
 
 repositories {
+    // GeckoLib Maven 仓库
+    maven {
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
+    // 本地 libs 文件夹
+    flatDir {
+        dirs 'libs'
+    }
     // Add here additional repositories if required by some of the dependencies below.
 }
 
@@ -112,6 +120,9 @@ configurations {
 }
 
 dependencies {
+    // GeckoLib 动画库 - 使用本地 jar 文件
+    implementation files('libs/geckolib-neoforge-1.21.1-4.8.3.jar')
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

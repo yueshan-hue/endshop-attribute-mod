@@ -1,0 +1,38 @@
+# 建筑任务配置
+# Building Task Configuration
+
+# 建造模式：quick_build（快速搭建）, schematic（蓝图建造）
+build_mode=quick_build
+
+# 快速搭建类型：line（直线）, square（方形）, circle（圆形）
+quick_build_type=line
+
+# 蓝图文件路径（schematic 模式下使用）
+schematic_path=schematics/building.nbt
+
+# 建造范围
+max_length=32
+max_width=32
+max_height=32
+
+# 材料优先级
+material_priority=backpack_first
+nearby_chest_enabled=true
+chest_search_radius=10
+
+# 自动填补
+auto_fill_holes=true
+replace_non_target_blocks=true
+
+# 建筑速度：slow（慢速）, normal（普通）, fast（快速）
+build_speed=normal
+
+# 防毁模式
+protect_important_blocks=true
+protected_blocks=chest,bed,furnace,barrel,shulker_box
+
+# 暂停条件
+pause_on_no_materials=true
+pause_on_low_health=true
+min_health_to_continue=4.0
+pause_on_attacked=true

@@ -12,7 +12,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
  * 客户端专用类 - 仅在客户端加载
  */
 @Mod(value = EndshopJob.MODID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = EndshopJob.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = EndshopJob.MODID, value = Dist.CLIENT)
 public class EndshopJobClient {
 
     public EndshopJobClient() {
@@ -26,5 +26,6 @@ public class EndshopJobClient {
             
         // 初始化按键绑定（已在 ModKeyMappings 中自动注册）
         EndshopJob.LOGGER.info("[终末地职业] 技能按键绑定已注册：Q, E, R, F");
+        EndshopJob.LOGGER.info("[终末地职业] 工具召唤按键已注册：V");
     }
 }

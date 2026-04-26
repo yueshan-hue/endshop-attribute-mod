@@ -1,0 +1,29 @@
+{
+  "operator_id": "替换为干员ID(小写)",
+  "name": "干员中文名",
+  "english_name": "英文名",
+  "profession": "职业(GUARD/DEFENDER/CASTER/SUPPORTER/SPECIALIST/VANGUARD/SNIPER/MEDIC)",
+  "rarity": 稀有度(1-6),
+  "description": "干员简短描述",
+  "attributes": {
+    "wisdom": 智识值,
+    "strength": 力量值,
+    "agility": 敏捷值,
+    "willpower": 意志值,
+    "primary_attribute": "主能力(strength/agility/wisdom/willpower)",
+    "secondary_attribute": "副能力(strength/agility/wisdom/willpower)"
+  },
+  "skills": [
+    "技能ID1",
+    "技能ID2",
+    "技能ID3"
+  ],
+  "stats": {
+    "base_health": 基础生命值,
+    "base_attack": 基础攻击力,
+    "base_defense": 基础防御力,
+    "physical_resistance": 物理伤害减免(0.0-1.0),
+    "elemental_resistance": 元素伤害减免(0.0-1.0)
+  },
+  "lore": "干员背景故事或详细介绍"
+}

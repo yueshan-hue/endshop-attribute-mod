@@ -92,6 +92,48 @@ public class EndshopEntityTypes {
                     .sized(0.6f, 1.8f)
                     .build("saixi"));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<EndshopEntity>> JUNWEI = 
+            ENTITY_TYPES.register("junwei", () -> EntityType.Builder.of(EndshopEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.8f)
+                    .build("junwei"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<EndshopEntity>> AIDERA = 
+            ENTITY_TYPES.register("aidera", () -> EntityType.Builder.of(EndshopEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.8f)
+                    .build("aidera"));
+
+    // 射流无人机实体
+    public static final DeferredHolder<EntityType<?>, EntityType<JetDroneEntity>> JET_DRONE = 
+            ENTITY_TYPES.register("jet_drone", () -> EntityType.Builder.of(JetDroneEntity::new, MobCategory.MISC)
+                    .sized(0.8f, 0.8f)
+                    .clientTrackingRange(8)
+                    .updateInterval(1)
+                    .build("jet_drone"));
+
+    // 侵蚀核心实体
+    public static final DeferredHolder<EntityType<?>, EntityType<ErosionCoreEntity>> EROSION_CORE = 
+            ENTITY_TYPES.register("erosion_core", () -> EntityType.Builder.of(ErosionCoreEntity::new, MobCategory.MONSTER)
+                    .sized(1.2f, 2.0f)
+                    .clientTrackingRange(10)
+                    .updateInterval(1)
+                    .build("erosion_core"));
+
+    // 技能特效实体
+    public static final DeferredHolder<EntityType<?>, EntityType<SkillEffectEntity>> SKILL_EFFECT = 
+            ENTITY_TYPES.register("skill_effect", () -> EntityType.Builder.of(SkillEffectEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .clientTrackingRange(4)
+                    .updateInterval(20)
+                    .build("skill_effect"));
+
+    // GeckoLib 技能特效实体 (支持基岩版模型和动画)
+    public static final DeferredHolder<EntityType<?>, EntityType<GeckoSkillEffectEntity>> GECKO_SKILL_EFFECT = 
+            ENTITY_TYPES.register("gecko_skill_effect", () -> EntityType.Builder.of(GeckoSkillEffectEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .clientTrackingRange(4)
+                    .updateInterval(20)
+                    .build("gecko_skill_effect"));
+
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);
         modEventBus.register(new EntityAttributeEvents());
@@ -119,6 +161,12 @@ public class EndshopEntityTypes {
             event.put(EndshopEntityTypes.ADMIN_A.get(), EndshopEntity.createAttributes().build());
             event.put(EndshopEntityTypes.YINGSHI.get(), EndshopEntity.createAttributes().build());
             event.put(EndshopEntityTypes.SAIXI.get(), EndshopEntity.createAttributes().build());
+            event.put(EndshopEntityTypes.JUNWEI.get(), EndshopEntity.createAttributes().build());
+            event.put(EndshopEntityTypes.AIDERA.get(), EndshopEntity.createAttributes().build());
+            // 射流无人机实体属性
+            event.put(EndshopEntityTypes.JET_DRONE.get(), EndshopEntity.createAttributes().build());
+            // 侵蚀核心实体属性
+            event.put(EndshopEntityTypes.EROSION_CORE.get(), ErosionCoreEntity.createAttributes().build());
         }
     }
 }

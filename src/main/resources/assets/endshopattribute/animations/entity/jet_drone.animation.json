@@ -1,0 +1,65 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.jet_drone.fly": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"飞机主体": {
+					"position": {
+						"0.0": [0, -2, 0],
+						"1.0": [0, 25, 0]
+					}
+				},
+				"飞机机翼": {
+					"rotation": {
+						"0.0": [0, 1170, 0],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.jet_drone.descend": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.08333,
+			"bones": {
+				"飞机主体": {
+					"position": {
+						"0.0": [0, 25, 0],
+						"1.083": [0, -2, 0]
+					}
+				},
+				"飞机机翼": {
+					"rotation": {
+						"0.0": [0, 1170, 0],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.jet_drone.exit": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"飞机主体": {
+					"scale": {
+						"0.0": [1, -4.2, 1],
+						"1.0": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.jet_drone.enter": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"飞机主体": {
+					"scale": {
+						"0.0": [1, 0.7, 1],
+						"1.0": [1, 2.3, 1]
+					}
+				}
+			}
+		}
+	}
+}
